@@ -1,0 +1,43 @@
+# Dependency directories
+node_modules/
+
+# Environment configuration
+.env
+
+# Logs
+logs/
+*.log
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Coverage directory
+coverage/
+
+# Debugging logs
+debug.log
+
+# yarn.lock file
+yarn.lock
+
+# Editor-specific files
+.vscode/
+.idea/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Cache and Build folders
+.cache/
+dist/
+build/
