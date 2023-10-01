@@ -51,8 +51,12 @@ const addTask = async (req, res, nxt) => {
 }
 
 const updateTask = async (req, res, nxt) => {
+
     const { id } = req.params
-    const { task } = req.body
+    const task = req.body
+    console.log({ task })
+
+
     try {
         const update = await updateTask_(id, task)
         if (update) {

@@ -1,4 +1,12 @@
 const knex = require("../db_connect")
+
+const getOnerow = async (id, table, resp) => {
+    knex.select('*').from(table).where({ id: id }).first().then(data => {
+        // console.log({ data })
+        resp(null, data)
+    }).catch(err => console.log(err) && resp(err, null))
+}
+
 const getAllTasks_ = () => {
     return new Promise((resolve, reject) => {
         knex.select().table('tasks').then(tasks => {
@@ -10,8 +18,14 @@ const getAllTasks_ = () => {
 const addTask_ = (task) => {
     return new Promise((resolve, reject) => {
         knex('tasks').insert(task).returning('*').then(tasks => {
-            console.log({ tsk: tasks })
-            if (tasks) resolve(tasks)
+            if (tasks) {
+                const task = getOnerow(tasks[0], 'tasks', (err, res) => {
+                    if (err) console.log({ err })
+                    resolve(res)
+                    // console.log({ res })
+                })
+                // console.log({ tsk: tasks, task: task })
+            }
         }).catch(e => reject(e))
     })
 }
