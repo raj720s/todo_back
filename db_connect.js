@@ -6,8 +6,8 @@ const knexconf = {
     connection: {
         host: 'localhost',
         user: 'root',
-        password: '',
-        database: 'todokdx',
+        password: '123456',
+        database: 'todo',
     }
 }
 
